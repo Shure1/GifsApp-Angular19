@@ -15,12 +15,10 @@ export default class GifHistoryComponent implements OnInit {
   public key: Signal<string>
   public gifsByKey = computed(() => this.gifService.getSearchHistory(this.key()))
 
-
   constructor(
     private activateRoute: ActivatedRoute,
     private gifService: GifService
   ) {
-
     this.key = toSignal(this.activateRoute.params.pipe(map(params => params['key'])))
     console.log(this.key())
   }
